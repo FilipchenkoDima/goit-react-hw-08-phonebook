@@ -1,9 +1,10 @@
 import { nanoid } from 'nanoid';
-import { ListBtn, ListItem } from './ContactList.styled';
+import PropTypes from 'prop-types';
+import { ListBtn, ListItem, ListWrapper } from './ContactList.styled';
 
 export const ContactList = ({ contacts, onClick }) => {
   return (
-    <ul>
+    <ListWrapper>
       {contacts.map(contact => {
         return (
           <ListItem key={nanoid()}>
@@ -21,6 +22,16 @@ export const ContactList = ({ contacts, onClick }) => {
           </ListItem>
         );
       })}
-    </ul>
+    </ListWrapper>
   );
+};
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  onClick: PropTypes.func.isRequired,
 };

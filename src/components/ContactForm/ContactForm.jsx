@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {
   NameForm,
   FormLabel,
@@ -66,3 +68,7 @@ export class ContactForm extends Component {
     );
   }
 }
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

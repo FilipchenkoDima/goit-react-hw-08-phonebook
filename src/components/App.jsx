@@ -17,30 +17,51 @@ export class App extends Component {
   };
 
   formSubmitHandler = ({ name, number }) => {
-    const contact = {
+    const { contacts } = this.state;
+    let newContact = {
       id: nanoid(),
       name,
       number,
     };
+
+    if (contacts.find(contact => contact.name === name)) {
+      return window.alert(`${name} is already in contacts.`);
+    }
+
     this.setState(prevState => ({
-      contacts: [contact, ...prevState.contacts],
+      contacts: [newContact, ...prevState.contacts],
     }));
   };
 
   handleDeleteContact = id => {
-    // const { contacts } = this.state;
-    console.log(id);
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
+  };
+
+  changeFilter = e => {
+    this.setState({ filter: e.currentTarget.value });
   };
 
   render() {
-    const { contacts } = this.state;
+    const { contacts, filter } = this.state;
+
+    const normalizeFilter = filter.toLocaleLowerCase();
+
+    const filterContacts = contacts.filter(contact => {
+      return contact.name.toLocaleLowerCase().includes(normalizeFilter);
+    });
+
     return (
       <PhoneBookWrapper>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
-        <Filter />
-        <ContactList contacts={contacts} onClick={this.handleDeleteContact} />
+        <Filter filter={filter} onChange={this.changeFilter} />
+        <ContactList
+          contacts={filterContacts}
+          onClick={this.handleDeleteContact}
+        />
       </PhoneBookWrapper>
     );
   }
