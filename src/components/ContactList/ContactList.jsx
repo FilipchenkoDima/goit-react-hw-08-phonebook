@@ -1,11 +1,27 @@
 import { nanoid } from 'nanoid';
-import PropTypes from 'prop-types';
 import { ListBtn, ListItem, ListWrapper } from './ContactList.styled';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteContact } from 'redux/contactsSlice';
 
-export const ContactList = ({ contacts, onClick }) => {
+export const ContactList = () => {
+  const dispatch = useDispatch();
+
+  const contacts = useSelector(state => state.contacts.contacts);
+  const filter = useSelector(state => state.filter.filter);
+
+  const handleDeleteContact = id => {
+    dispatch(deleteContact(id));
+  };
+
+  const normalizeFilter = filter.toLocaleLowerCase();
+
+  const filterContacts = contacts.filter(contact => {
+    return contact.name.toLocaleLowerCase().includes(normalizeFilter);
+  });
+
   return (
     <ListWrapper>
-      {contacts.map(contact => {
+      {filterContacts.map(contact => {
         return (
           <ListItem key={nanoid()}>
             <p>
@@ -14,7 +30,7 @@ export const ContactList = ({ contacts, onClick }) => {
             <ListBtn
               type="button"
               onClick={() => {
-                onClick(contact.id);
+                handleDeleteContact(contact.id);
               }}
             >
               Delete
@@ -24,14 +40,4 @@ export const ContactList = ({ contacts, onClick }) => {
       })}
     </ListWrapper>
   );
-};
-
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
-  onClick: PropTypes.func.isRequired,
 };
