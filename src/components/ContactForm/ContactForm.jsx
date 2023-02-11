@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/contacts/contactsOperations';
 
 import {
   NameForm,
@@ -39,7 +39,7 @@ export const ContactForm = () => {
       return window.alert(`${name} is already in contacts.`);
     }
 
-    dispatch(addContact(name, number));
+    dispatch(addContact({ name, number }));
 
     reset();
   };
