@@ -1,5 +1,13 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
+import { Link } from 'react-router-dom';
+import {
+  FormTitle,
+  FormWrapper,
+  FormBtn,
+  FormInfo,
+  FormInput,
+} from './RegisterForm.style';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -18,20 +26,29 @@ export const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
+    <FormWrapper onSubmit={handleSubmit} autoComplete="off">
+      <FormTitle>Create An Account</FormTitle>
+      <FormInfo>
+        Create an account to enjoy all the services without any ads for free!
+      </FormInfo>
       <label>
-        Username
-        <input type="text" name="name" />
+        <FormInput type="text" name="name" label="Username" size="small" />
       </label>
       <label>
-        Email
-        <input type="email" name="email" />
+        <FormInput type="email" name="email" label="Email" size="small" />
       </label>
       <label>
-        Password
-        <input type="password" name="password" />
+        <FormInput
+          type="password"
+          name="password"
+          label="Password"
+          size="small"
+        />
       </label>
-      <button type="submit">Register</button>
-    </form>
+      <FormBtn type="submit">Register</FormBtn>
+      <FormInfo>
+        Already Have An Account? <Link to="/login">Sign In</Link>
+      </FormInfo>
+    </FormWrapper>
   );
 };

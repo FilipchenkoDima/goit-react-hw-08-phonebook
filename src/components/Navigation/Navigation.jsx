@@ -1,13 +1,34 @@
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks/useAuth';
+import PinterestIcon from '@mui/icons-material/Pinterest';
+import { Typography } from '@mui/material';
+import { NavWrapper, HomeLogo, NavItem } from './Navigation.styled';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <nav>
-      <NavLink to="/">Home</NavLink>
-      {isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}
-    </nav>
+    <NavWrapper>
+      <HomeLogo to="/">
+        <PinterestIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        <Typography
+          variant="h6"
+          noWrap
+          style={{ textDecoration: 'none', color: '#ffffff', fontSize: '24px' }}
+          href="/"
+          sx={{
+            mr: 2,
+            display: { xs: 'none', md: 'flex' },
+            fontFamily: 'monospace',
+            fontWeight: 700,
+            letterSpacing: '.1rem',
+          }}
+        >
+          PhoneBook
+        </Typography>
+      </HomeLogo>
+
+      {isLoggedIn && <NavItem to="/contacts">Contacts</NavItem>}
+    </NavWrapper>
   );
 };

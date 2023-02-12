@@ -1,5 +1,13 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authOperations';
+import { Link } from 'react-router-dom';
+import {
+  FormTitle,
+  FormWrapper,
+  FormBtn,
+  FormInfo,
+  FormInput,
+} from '../RegisterForm/RegisterForm.style';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -17,16 +25,26 @@ export const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
+    <FormWrapper onSubmit={handleSubmit} autoComplete="off">
+      <FormTitle>Log In</FormTitle>
+      <FormInfo>
+        Lod in account to enjoy all the services without any ads for free!
+      </FormInfo>
       <label>
-        Email
-        <input type="email" name="email" />
+        <FormInput type="email" name="email" label="Email" size="small" />
       </label>
       <label>
-        Password
-        <input type="password" name="password" />
+        <FormInput
+          type="password"
+          name="password"
+          label="Password"
+          size="small"
+        />
       </label>
-      <button type="submit">Log In</button>
-    </form>
+      <FormBtn type="submit">Log In</FormBtn>
+      <FormInfo>
+        Don't Have An Account? <Link to="/register">Register</Link>
+      </FormInfo>
+    </FormWrapper>
   );
 };
