@@ -33,3 +33,37 @@ export const ListItem = styled.li`
 export const ContactInfo = styled.p`
   width: 140px;
 `;
+
+export const ModalWrapper = styled.div`
+  background-color: #a7d7c5;
+  text-align: center;
+  padding: 16px;
+  border-radius: 18px;
+  color: #ffffff;
+`;
+
+export const BtnWrapper = styled.div`
+  display: flex;
+  gap: 26px;
+`;
+
+export const ModalBtn = styled.button`
+  display: block;
+  background-color: #84c7ae;
+  color: #ffffff;
+  border: none;
+  width: 100px;
+  height: 34px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  :hover {
+    background-color: #84c7a4;
+    box-shadow: 0px 0px 12px -2px rgb(0 0 0 / 50%);
+  }
+`;
+
+export const ModalTitle = styled.h2`
+  margin-top: 0;
+`;
