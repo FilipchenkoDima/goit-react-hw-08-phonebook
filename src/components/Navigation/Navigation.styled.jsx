@@ -1,6 +1,13 @@
 import styled from "styled-components";
-// import { Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { NavLink } from "react-router-dom";
+
+export const LogoText = styled(Typography)`
+  display: flex !important;
+  @media screen and (max-width: 700px) {
+    display: none !important;
+  }
+`;
 
 export const HomeLogo = styled(NavLink)`
   display: flex;
@@ -12,6 +19,7 @@ export const HomeLogo = styled(NavLink)`
 export const NavWrapper = styled.nav`
   display: flex;
   color: #ffffff;
+  gap: 18px;
 `;
 
 export const NavItem = styled(NavLink)`

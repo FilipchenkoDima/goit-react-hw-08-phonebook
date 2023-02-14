@@ -15,11 +15,15 @@ export const Contacts = () => {
 
   return (
     <PhoneBookWrapper>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
+      <div>
+        <ContactForm />
+      </div>
+      <div>
+        <h2>Contacts</h2>
+        
+        <Filter />
+        <ContactList />
+      </div>
     </PhoneBookWrapper>
   );
 };

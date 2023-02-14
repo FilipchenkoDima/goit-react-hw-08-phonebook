@@ -9,6 +9,11 @@ export const MenuWrapper = styled.div`
 export const MenuText = styled.p`
   margin: 0;
   align-self: center;
+
+  @media screen and (max-width: 900px) {
+    font-size: 12px;
+    width: 112px;
+  }
 `;
 
 export const MenuSettingItem = styled.p`

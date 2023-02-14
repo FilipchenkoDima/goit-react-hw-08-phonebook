@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const FormWrapper = styled.form`
   display: flex;
   padding: 26px;
-  width: 450px;
+  width: 250px;
   flex-direction: column;
   align-items: center;
   border-radius: 24px;
@@ -12,18 +12,25 @@ export const FormWrapper = styled.form`
   font-family: 'Karla';
   gap: 12px;
   margin: 10% auto;
+  @media screen and (min-width: 700px) {
+    width: 450px;
+  }
 `;
 
 export const FormInput = styled(TextField)`
-  width: 300px;
+  width: 220px;
   background-color: #ffffff;
+
+  @media screen and (min-width: 700px) {
+    width: 300px;
+  }
 `;
 
 export const FormTitle = styled.h2`
   color: #212b27;
   margin: 0px;
   font-size: 32px;
-  line-height: 1.3;
+  text-align: center;
 `;
 
 export const FormInfo = styled.p`
@@ -47,6 +54,7 @@ export const FormBtn = styled.button`
   border-radius: 8px;
   cursor: pointer;
   :hover {
-    background-color: #84c7a4;;
+    background-color: #84c7a4;
+    box-shadow: 0px 0px 12px -2px rgb(0 0 0 / 50%);
   }
 `;

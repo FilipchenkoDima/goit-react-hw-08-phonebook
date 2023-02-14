@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
-import Home from 'pages/Home';
+import Home from 'pages/Home/Home';
 import Login from 'pages/Login';
 import Register from 'pages/Register';
 import { Contacts } from 'pages/Contacts';
@@ -40,6 +40,7 @@ export const App = () => {
             path="/contacts"
             element={<PrivateRoute component={Contacts} redirectTo="/login" />}
           />
+          <Route path="*" element={<Home />} />
         </Route>
       </Routes>
     )

@@ -1,15 +1,20 @@
 import styled from 'styled-components';
 
 export const ListBtn = styled.button`
-  width: 94px;
-  height: 28px;
-  border-radius: 5px;
-  background-color: #ffffff;
-  border: 1px solid #999999;
+  display: block;
+  background-color: #84c7ae;
+  color: #ffffff;
+  border: none;
+  width: 130px;
+  height: 34px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
   cursor: pointer;
-  margin-left: 16px;
+  box-shadow: 0px 0px 12px -2px rgb(0 0 0 / 20%);
   :hover {
-    background-color: #1212;
+    background-color: #84c7a4;
+    box-shadow: 0px 0px 12px -2px rgb(0 0 0 / 50%);
   }
 `;
 
@@ -22,4 +27,5 @@ export const ListItem = styled.li`
   align-items: center;
   font-weight: 500;
   font-size: 17px;
+  gap: 16px;
 `;
