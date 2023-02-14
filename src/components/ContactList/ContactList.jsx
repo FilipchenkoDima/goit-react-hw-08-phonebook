@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { ListBtn, ListItem, ListWrapper } from './ContactList.styled';
+import { ContactInfo, ListBtn, ListItem, ListWrapper } from './ContactList.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contactsOperations';
 
@@ -10,6 +10,7 @@ export const ContactList = () => {
   const filter = useSelector(state => state.filter.filter);
 
   const handleDeleteContact = id => {
+    
     dispatch(deleteContact(id));
   };
 
@@ -24,9 +25,9 @@ export const ContactList = () => {
       {filterContacts.map(contact => {
         return (
           <ListItem key={nanoid()}>
-            <p>
+            <ContactInfo>
               {contact.name}: {contact.number}
-            </p>
+            </ContactInfo>
             <ListBtn
               type="button"
               onClick={() => {

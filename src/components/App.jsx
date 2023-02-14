@@ -10,6 +10,8 @@ import { useAuth } from 'hooks/useAuth';
 import { refreshUser } from 'redux/auth/authOperations';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -21,28 +23,33 @@ export const App = () => {
 
   return (
     !isRefreshing && (
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route
-            path="/register"
-            element={
-              <RestrictedRoute component={Register} redirectTo="/contacts" />
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <RestrictedRoute component={Login} redirectTo="/contacts" />
-            }
-          />
-          <Route
-            path="/contacts"
-            element={<PrivateRoute component={Contacts} redirectTo="/login" />}
-          />
-          <Route path="*" element={<Home />} />
-        </Route>
-      </Routes>
+      <>
+        <ToastContainer />
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route
+              path="/register"
+              element={
+                <RestrictedRoute component={Register} redirectTo="/contacts" />
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <RestrictedRoute component={Login} redirectTo="/contacts" />
+              }
+            />
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute component={Contacts} redirectTo="/login" />
+              }
+            />
+            <Route path="*" element={<Home />} />
+          </Route>
+        </Routes>
+      </>
     )
   );
 };

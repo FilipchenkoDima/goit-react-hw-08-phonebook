@@ -32,10 +32,22 @@ export const RegisterForm = () => {
         Create an account to enjoy all the services without any ads for free!
       </FormInfo>
       <label>
-        <FormInput type="text" name="name" label="Username" size="small" />
+        <FormInput
+          type="text"
+          name="name"
+          label="Username"
+          size="small"
+          required
+        />
       </label>
       <label>
-        <FormInput type="email" name="email" label="Email" size="small" />
+        <FormInput
+          type="email"
+          name="email"
+          label="Email"
+          size="small"
+          required
+        />
       </label>
       <label>
         <FormInput
@@ -43,6 +55,7 @@ export const RegisterForm = () => {
           name="password"
           label="Password"
           size="small"
+          required
         />
       </label>
       <FormBtn type="submit">Register</FormBtn>

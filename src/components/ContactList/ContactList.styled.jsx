@@ -19,8 +19,8 @@ export const ListBtn = styled.button`
 `;
 
 export const ListWrapper = styled.ul`
-padding: 0;
-`
+  padding: 0;
+`;
 
 export const ListItem = styled.li`
   display: flex;
@@ -28,4 +28,8 @@ export const ListItem = styled.li`
   font-weight: 500;
   font-size: 17px;
   gap: 16px;
+`;
+
+export const ContactInfo = styled.p`
+  width: 140px;
 `;

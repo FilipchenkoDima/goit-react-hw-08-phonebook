@@ -20,16 +20,17 @@ export const InfoWrapper = styled.div`
   display: flex;
   gap: 120px;
   @media screen and (max-width: 900px) {
-    gap: 40px;
+    gap: 18px;
     flex-direction: column;
   }
 `;
 
 export const Info = styled.p`
-  font-size: 24px;
+  font-size: 22px;
   color: #ffffff;
   width: 350px;
   line-height: normal;
+  text-align: center;
 `;
 
 export const BtnList = styled.ul`
@@ -41,7 +42,7 @@ export const BtnList = styled.ul`
 `;
 
 export const RegisterInfo = styled.p`
-  font-size: 20px;
+  font-size: 22px;
   width: 350px;
   text-align: center;
   color: #ffffff;

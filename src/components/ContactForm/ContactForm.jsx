@@ -8,7 +8,7 @@ import {
   SubmitBtn,
 } from './ContactForm.styled';
 import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const ContactForm = () => {
@@ -63,7 +63,6 @@ export const ContactForm = () => {
 
   return (
     <>
-      <ToastContainer/>
       <h2>Add Contact</h2>
       <NameForm onSubmit={handleSubmitBtn}>
         <FormLabel>

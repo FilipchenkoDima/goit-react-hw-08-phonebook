@@ -31,7 +31,13 @@ export const LoginForm = () => {
         Lod in account to enjoy all the services without any ads for free!
       </FormInfo>
       <label>
-        <FormInput type="email" name="email" label="Email" size="small" />
+        <FormInput
+          type="email"
+          name="email"
+          label="Email"
+          size="small"
+          required
+        />
       </label>
       <label>
         <FormInput
@@ -39,6 +45,7 @@ export const LoginForm = () => {
           name="password"
           label="Password"
           size="small"
+          required
         />
       </label>
       <FormBtn type="submit">Log In</FormBtn>
