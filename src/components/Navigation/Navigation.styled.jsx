@@ -14,6 +14,7 @@ export const HomeLogo = styled(NavLink)`
   align-items: center;
   text-decoration: none;
   color: #ffffff;
+  gap: 6px;
 `;
 
 export const NavWrapper = styled.nav`

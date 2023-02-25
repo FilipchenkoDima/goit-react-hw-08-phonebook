@@ -1,6 +1,6 @@
 // import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks/useAuth';
-import PinterestIcon from '@mui/icons-material/Pinterest';
+import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import { NavWrapper, HomeLogo, NavItem, LogoText } from './Navigation.styled';
 
 export const Navigation = () => {
@@ -9,7 +9,7 @@ export const Navigation = () => {
   return (
     <NavWrapper>
       <HomeLogo to="/">
-        <PinterestIcon  />
+        <ContactPhoneIcon />
         <LogoText
           variant="h6"
           noWrap
